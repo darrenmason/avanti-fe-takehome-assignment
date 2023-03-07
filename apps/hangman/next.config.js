@@ -44,4 +44,14 @@ module.exports = {
     */
     return config
   },
+  // Redirects
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/game',
+        permanent: true,
+      },
+    ]
+  },
 }
