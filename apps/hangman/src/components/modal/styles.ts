@@ -17,7 +17,7 @@ export const StyledModalBackground = styled.div<Background>`
     (status == 'won' && 'flex') || (status == 'lost' && 'flex')};
 `
 export const StyledModalBody = styled.div`
-  padding: 2em;
+  padding: 2rem;
   background: #fff;
   min-width: 300px;
   width: 50%;

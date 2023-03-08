@@ -5,10 +5,9 @@ import * as gameSelectors from '@packages/sdk/resources/game/selectors'
 
 type Props = {
   children?: ReactNode
-  show: boolean
 }
 
-export default function Modal({ children, show }: Props): JSX.Element {
+export default function Modal({ children }: Props): JSX.Element {
   const status = useSelector(gameSelectors.status)
   return (
     <StyledModalBackground status={status}>
