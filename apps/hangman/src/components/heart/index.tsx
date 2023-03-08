@@ -8,14 +8,11 @@ interface Props {
 
 export default function Heart({ status }: Props): JSX.Element {
   const size = 24
-  const src = `/icons/heart-full.svg`
-  if (status) {
-    return (
-      <StyledHeartContainer>
-        <Image height={size} src={src} width={size} />
-      </StyledHeartContainer>
-    )
-  } else {
-    return null
-  }
+  const heartFull = `/icons/heart-full.svg`
+  const heartEmpty = `/icons/heart-empty.svg`
+  return (
+    <StyledHeartContainer>
+      <Image height={size} src={status ? heartFull : heartEmpty} width={size} />
+    </StyledHeartContainer>
+  )
 }
