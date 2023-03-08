@@ -96,6 +96,7 @@ export default function gameReducer(
     case types.NEW:
       return {
         ...state,
+        ...payload,
         highscores: state.highscores,
         highscoresIndex: state.highscoresIndex,
       }
