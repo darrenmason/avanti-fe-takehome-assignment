@@ -49,6 +49,10 @@ class CustomDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
             rel="stylesheet"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Oswald&display=swap"
+            rel="stylesheet"
+          />
         </body>
       </Html>
     )
