@@ -28,10 +28,12 @@ export default function gameReducer(
     case types.GUESS:
       const charFade = state.charFade
       let hearts = state.hearts
-      const numGuesses = state.numGuesses
+      let numGuesses = state.numGuesses
       let score = state.score
       let status = state.status
       const wordGuessed = state.wordGuessed
+
+      numGuesses++
 
       state.word.split('').forEach((char, i) => {
         // If the char guessed is a char in the word
