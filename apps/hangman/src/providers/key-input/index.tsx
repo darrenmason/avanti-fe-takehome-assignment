@@ -28,7 +28,6 @@ class KeyInputProvider extends PureComponent<Props> {
 
   onKeyDown = ({ key }: KeyboardEvent): void => {
     if (this.props.status == 'playing') {
-      console.log(key)
       this.props.makeGuess(key)
     }
   }

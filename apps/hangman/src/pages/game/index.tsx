@@ -3,6 +3,7 @@ import * as gameActions from '@packages/sdk/resources/game/actions'
 import * as gameSelectors from '@packages/sdk/resources/game/selectors'
 import HeartList from './components/heart-list'
 import HighScore from './components/high-score'
+import Modal from '../../components/modal'
 import React from 'react'
 import Score from './components/score'
 import {
@@ -25,6 +26,7 @@ export default function pageGame(): JSX.Element {
       <Score />
       <HeartList />
       <CharacterBoard />
+      <Modal show={true}>test</Modal>
       <HighScore />
       <StyledNewGameButton
         onClick={(e) => {
