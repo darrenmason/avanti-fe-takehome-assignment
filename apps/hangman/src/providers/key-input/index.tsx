@@ -11,7 +11,8 @@ type Props = ReturnType<typeof mapStateToProps> &
 const mapStateToProps = (state) => ({ status: gameSelectors.status(state) })
 
 const mapDispatchToProps = (dispatch) => ({
-  makeGuess: (char: string) => null,
+  makeGuess: (char: string) =>
+    dispatch(gameActions.makeGuess(char.toLowerCase())),
 })
 
 const connector = connect(mapStateToProps, mapDispatchToProps)
@@ -27,6 +28,7 @@ class KeyInputProvider extends PureComponent<Props> {
 
   onKeyDown = ({ key }: KeyboardEvent): void => {
     if (this.props.status == 'playing') {
+      console.log(key)
       this.props.makeGuess(key)
     }
   }
