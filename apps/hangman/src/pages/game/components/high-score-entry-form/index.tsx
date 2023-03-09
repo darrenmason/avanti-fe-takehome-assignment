@@ -16,30 +16,63 @@ import { useDispatch, useSelector } from '@packages/sdk'
 export default function HighScoreEntryForm(): JSX.Element {
   const dispatch = useDispatch()
   const score = useSelector(gameSelectors.score)
+  const highscores = useSelector(gameSelectors.highscores)
+  const lowestHighScore = useSelector(gameSelectors.lowestHighScore)
+  const isHighScore = () => {
+    if (highscores.length == 10) {
+      if (score > lowestHighScore) {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return true
+    }
+  }
   const username = useSelector(userSelectors.username)
 
-  return (
-    <>
-      <StyledHighScoreHeader>High Score Entry</StyledHighScoreHeader>
-      <StyledHighScoreText>Score: &nbsp;{score}</StyledHighScoreText>
-      <StyledHighScoreForm>
-        <StyledHighScoreLabel>Username:</StyledHighScoreLabel>
-        <StyledHighScoreInput
-          value={username}
-          onChange={(e) => dispatch(userActions.setUsername(e.target.value))}
-        ></StyledHighScoreInput>
+  if (isHighScore()) {
+    return (
+      <>
+        <StyledHighScoreHeader>High Score Entry</StyledHighScoreHeader>
+        <StyledHighScoreText>Score: &nbsp;{score}</StyledHighScoreText>
+        <StyledHighScoreForm>
+          <StyledHighScoreLabel>Username:</StyledHighScoreLabel>
+          <StyledHighScoreInput
+            value={username}
+            onChange={(e) => dispatch(userActions.setUsername(e.target.value))}
+          ></StyledHighScoreInput>
 
+          <StyledHighScoreButton
+            onClick={(e) => {
+              e && e.preventDefault()
+              dispatch(gameActions.setHighScore(username))
+              dispatch(gameActions.getNewGame())
+            }}
+            type="button"
+          >
+            Submit
+          </StyledHighScoreButton>
+        </StyledHighScoreForm>
+      </>
+    )
+  } else {
+    return (
+      <>
+        <StyledHighScoreHeader>
+          You Didn&apos;t Get a High Score
+        </StyledHighScoreHeader>
+        <StyledHighScoreText>Score: &nbsp;{score}</StyledHighScoreText>
         <StyledHighScoreButton
           onClick={(e) => {
             e && e.preventDefault()
-            dispatch(gameActions.setHighScore(username))
             dispatch(gameActions.getNewGame())
           }}
           type="button"
         >
-          Submit
+          Try Again
         </StyledHighScoreButton>
-      </StyledHighScoreForm>
-    </>
-  )
+      </>
+    )
+  }
 }

@@ -9,6 +9,7 @@ function generateInitialState(): GameData {
     hearts: [],
     heartsIndex: '',
     highscores: [],
+    lowestHighScore: 0,
     highscoresIndex: '',
     numGuesses: 0,
     status: 'playing',
@@ -89,10 +90,13 @@ export default function gameReducer(
       const highscores = state.highscores
       highscores.push({ score: state.score, username: payload.username || '' })
       highscores.sort((a, b) => b.score - a.score)
+      const topScores = highscores.slice(0, 10)
+      const lowestHighScore = topScores[topScores.length - 1].score
 
       return {
         ...state,
-        highscores: highscores.slice(0, 10), // Only show top ten scores
+        highscores: topScores, // Only show top ten scores
+        lowestHighScore: lowestHighScore,
         highscoresIndex: highscores.map(({ score }) => score).join(''),
       }
 

@@ -7,6 +7,7 @@ export const highscores = (state) => state.game.highscores
 export const highscoresIndex = (state) => state.game.highscoresIndex
 export const numGuesses = (state) => state.game.numGuesses
 export const score = (state) => state.game.score
+export const lowestHighScore = (state) => state.game.lowestHighScore
 export const status = (state) => state.game.status
 export const word = (state) => state.game.word
 export const wordGuessed = (state) => state.game.wordGuessed

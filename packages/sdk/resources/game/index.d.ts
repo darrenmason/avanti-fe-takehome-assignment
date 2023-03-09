@@ -7,6 +7,7 @@ export interface GameData {
   hearts: number[]
   heartsIndex: string // This is necessary so Redux knows the fade number(s) have been updated
   highscores: HighScore[]
+  lowestTopScore: number
   highscoresIndex: string // This is necessary so Redux knows the fade number(s) have been updated
   numGuesses: number
   status: 'lost' | 'playing' | 'won'

@@ -4,7 +4,7 @@ import { User } from '.'
 
 const initialState = {
   id: null,
-  username: null,
+  username: '',
 }
 
 export default function userReducer(
