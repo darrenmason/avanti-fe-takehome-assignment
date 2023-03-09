@@ -34,14 +34,13 @@ export default function gameReducer(
       let status = state.status
       const wordGuessed = state.wordGuessed
 
-      numGuesses++
-
       state.word.split('').forEach((char, i) => {
         // If the char guessed is a char in the word
         if (char == payload.charGuessed && !wordGuessed[i]) {
           charFade[i] = numGuesses
           wordGuessed[i] = char
           score++ // Increment score for each instance correct guess
+          numGuesses++
         } else {
           wordGuessed[i] = wordGuessed[i] || ''
         }
@@ -62,6 +61,7 @@ export default function gameReducer(
         })
 
         score--
+        numGuesses++
       }
 
       // User won
