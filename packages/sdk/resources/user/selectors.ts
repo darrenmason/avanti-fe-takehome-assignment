@@ -1,3 +1,1 @@
-import { useSelector } from 'react-redux'
-
-export const user = useSelector((state) => state.user)
+export const username = (state) => state.user.username

@@ -99,6 +99,10 @@ export default function gameReducer(
       return {
         ...state,
         ...payload,
+        status: 'playing',
+        wordGuessed: [],
+        wordGuessedIndex: '',
+        score: 0,
         highscores: state.highscores,
         highscoresIndex: state.highscoresIndex,
       }

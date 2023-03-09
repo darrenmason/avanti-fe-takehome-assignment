@@ -28,8 +28,8 @@ export const makeGuess = (char: string) => (dispatch): void =>
     payload: { charGuessed: char },
   })
 
-export const setHighScore = () => (dispatch): void =>
+export const setHighScore = (username: string) => (dispatch): void =>
   dispatch({
     type: types.SET_HIGH_SCORE,
-    payload: {},
+    payload: { username: username },
   })

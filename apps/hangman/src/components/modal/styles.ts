@@ -20,6 +20,6 @@ export const StyledModalBody = styled.div`
   padding: 2rem;
   background: #fff;
   min-width: 300px;
-  width: 50%;
+  width: 60%;
   text-align: center;
 `

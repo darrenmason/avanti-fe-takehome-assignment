@@ -1,6 +1,7 @@
 import { connect } from '@packages/sdk'
 import * as gameActions from '@packages/sdk/resources/game/actions'
 import * as gameSelectors from '@packages/sdk/resources/game/selectors'
+import * as userSelectors from '@packages/sdk/resources/user/selectors'
 import React, { PureComponent } from 'react'
 
 type Props = ReturnType<typeof mapStateToProps> &
@@ -8,7 +9,10 @@ type Props = ReturnType<typeof mapStateToProps> &
     children: any
   }
 
-const mapStateToProps = (state) => ({ status: gameSelectors.status(state) })
+const mapStateToProps = (state) => ({
+  status: gameSelectors.status(state),
+  user: userSelectors.username(state),
+})
 
 const mapDispatchToProps = (dispatch) => ({
   makeGuess: (char: string) =>

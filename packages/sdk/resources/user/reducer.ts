@@ -18,6 +18,12 @@ export default function userReducer(
         ...payload,
       }
 
+    case types.SET_USERNAME:
+      return {
+        ...state,
+        ...payload,
+      }
+
     default:
       return state
   }
