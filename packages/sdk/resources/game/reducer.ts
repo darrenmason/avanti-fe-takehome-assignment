@@ -88,6 +88,7 @@ export default function gameReducer(
     case types.SET_HIGH_SCORE:
       const highscores = state.highscores
       highscores.push({ score: state.score, username: payload.username || '' })
+      highscores.sort((a, b) => b.score - a.score)
 
       return {
         ...state,
