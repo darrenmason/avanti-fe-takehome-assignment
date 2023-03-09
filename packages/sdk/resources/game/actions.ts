@@ -9,8 +9,7 @@ export const getHighScores = () => (dispatch): void =>
 
 function generateNewGameData(): Partial<GameData> {
   const words = ['avanti', 'battleship', 'chicken', 'doodle', 'egor', 'fortune']
-  const index = 0
-  const word = words[index]
+  const word = words[Math.floor(Math.random() * words.length)] // Get random word
   const hearts = [1, 1, 1, 1, 1, 1, 1] // Get seven wrong guesses
 
   return { hearts, word, wordLength: word.length }
